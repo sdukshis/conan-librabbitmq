@@ -46,3 +46,5 @@ class LibrabbitmqConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["rabbitmq"]
+        if self.settings.os == "Linux":
+            self.cpp_info.libs.append("rt")
