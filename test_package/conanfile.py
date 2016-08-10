@@ -9,7 +9,7 @@ class TestLibrabbitmqConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     requires = "librabbitmq/0.8.1@%s/%s" % (username, channel)
     generators = "cmake"
-    default_options = "librabbitmq:no_openssl=False"
+    default_options = "librabbitmq:no_openssl=True"
 
     def build(self):
         cmake = CMake(self.settings)
