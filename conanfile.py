@@ -10,7 +10,7 @@ class LibrabbitmqConan(ConanFile):
     options = {
         "no_openssl": [True, False],
     }
-    default_options = "no_openssl=False"
+    default_options = "no_openssl=True"
     counter_config = 0
 
     def source(self):
