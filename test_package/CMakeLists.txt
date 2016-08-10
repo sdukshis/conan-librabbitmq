@@ -4,6 +4,5 @@ project(TestLibrabbitmq)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-message("CONAN_LIBS: ${CONAN_LIBS}")
 add_executable(test_librabbitmq test_rabbitmq.cpp)
 target_link_libraries(test_librabbitmq ${CONAN_LIBS})
