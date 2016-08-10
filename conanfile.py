@@ -32,7 +32,7 @@ class LibrabbitmqConan(ConanFile):
             self.run("cmake -DENABLE_SSL_SUPPORT=OFF -DBUILD_EXAMPLES=OFF %s/rabbitmq-c %s" % (self.conanfile_directory, cmake.command_line))
 
         self.run("cmake --build . %s" % cmake.build_config)
-        self.run("ctest -C %s %s" % (cmake.build_config, self.conanfile_directory))
+        self.run("ctest %s" % self.conanfile_directory)
 
     def package(self):
         self.copy("amqp.h", dst="include", src="rabbitmq-c/librabbitmq")
