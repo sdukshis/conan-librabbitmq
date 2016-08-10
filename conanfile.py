@@ -45,6 +45,10 @@ class LibrabbitmqConan(ConanFile):
         self.copy("*.dll", dst="lib", src="librabbitmq")
 
     def package_info(self):
-        self.cpp_info.libs = ["rabbitmq"]
         if self.settings.os == "Linux":
-            self.cpp_info.libs.append("rt")
+            self.cpp_info.libs = ["rabbitmq", "rt"]
+        elif self.settings.os == "Windows":
+            self.cpp_info.libs = ["rabbitmq.4"]
+        else:
+            self.cpp_info.libs = ["rabbitmq"]
+
