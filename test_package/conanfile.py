@@ -17,4 +17,7 @@ class TestLibrabbitmqConan(ConanFile):
         self.run("cmake --build . %s" % cmake.build_config)
 
     def test(self):
+        if self.settings.os == "Windows":
+            # Add librabitmq.4.dll directory to PATH
+            self.run("set PATH=%%PATH%%;%s" % self.deps_cpp_info["librabbitmq"].lib_paths[0])
         self.run(os.sep.join([".","bin", "test_librabbitmq"]))
