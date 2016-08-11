@@ -39,10 +39,12 @@ class LibrabbitmqConan(ConanFile):
         self.copy("amqp_tcp_socket.h", dst="include", src="rabbitmq-c/librabbitmq")
         self.copy("amqp_ssl_socket.h", dst="include", src="rabbitmq-c/librabbitmq")
         self.copy("amqp_framing.h", dst="include", src="rabbitmq-c/librabbitmq")
-        self.copy("*.lib", dst="lib", src="librabbitmq")
+        self.copy("*.lib", dst="lib", src="librabbitmq/Release")
+        self.copy("*.lib", dst="lib", src="librabbitmq/Debug")
+        self.copy("*.dll", dst="lib", src="librabbitmq/Release")
+        self.copy("*.dll", dst="lib", src="librabbitmq/Debug")
         self.copy("*.a", dst="lib", src="librabbitmq")
         self.copy("*.so.*", dst="lib", src="librabbitmq")
-        self.copy("*.dll", dst="lib", src="librabbitmq")
 
     def package_info(self):
         if self.settings.os == "Linux":
